@@ -9,7 +9,7 @@ namespace DSP_Galaxy_tool.Module.BusinessObjects
 {
     [DevExpress.ExpressApp.Model.ModelDefault("IsCloneable", "True")]
     [DevExpress.Persistent.Base.NavigationItem("Galaxy")]
-    public class Star : XPObject
+    public class Star : XPObject, Classes.IResourceOwner
     {
         public Star(Session session) : base(session) { }
 
@@ -157,6 +157,7 @@ namespace DSP_Galaxy_tool.Module.BusinessObjects
             set => SetPropertyValue(nameof(PositionZ), ref positionZ, value);
         }
 
+        [DevExpress.Persistent.Base.ExpandObjectMembers(DevExpress.Persistent.Base.ExpandObjectMembers.Never)]
         [Aggregated]
         public Star BinaryCompanion
         {
@@ -221,5 +222,34 @@ namespace DSP_Galaxy_tool.Module.BusinessObjects
         [Association("Star-Planets"), Aggregated]
         public XPCollection<Planet> Planets
         { get => GetCollection<Planet>(); }
+
+        private XPCollection<VeinTypeVein> allVeins;
+        public XPCollection<VeinTypeVein> AllVeins
+        {
+            get
+            {
+                if (allVeins == null)
+                { allVeins = new XPCollection<VeinTypeVein>(Session, DevExpress.Data.Filtering.CriteriaOperator.Parse("VeinType.VeinSettings.<PlanetVeinSettings>Planet.Star = ?", this)); }
+                return allVeins;
+            }
+        }
+
+        private System.ComponentModel.BindingList<FluidResource> allFluids;
+        public System.ComponentModel.BindingList<FluidResource> AllFluids
+        {
+            get
+            {
+                if (allFluids == null)
+                {
+                    allFluids = new System.ComponentModel.BindingList<FluidResource>();
+                    foreach (var planet in Planets)
+                    {
+                        foreach(var fluid in planet.AllFluids)
+                        { AllFluids.Add(fluid); }
+                    }
+                }
+                return allFluids;
+            }
+        }
     }
 }

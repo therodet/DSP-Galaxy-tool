@@ -1,5 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Application Title="DSP Galaxy tool">
+  <NavigationItems>
+    <Items>
+      <Item Id="Galaxy">
+        <Items>
+          <Item Id="Cluster_ListView" Index="0" />
+          <Item Id="Star_ListView" Index="1" />
+          <Item Id="Planet_ListView" Index="2" />
+        </Items>
+      </Item>
+    </Items>
+  </NavigationItems>
   <Options>
     <LayoutManagerOptions RequiredFieldMark="*" />
   </Options>
@@ -94,7 +105,10 @@
             <LayoutGroup Id="Item3" ShowCaption="True" CaptionLocation="Top" Direction="Vertical" Index="2" Caption="Vein Types" RelativeSize="100" IsNewNode="True">
               <LayoutItem Id="VeinTypes" ViewItem="VeinTypes" Index="0" RelativeSize="100" ShowCaption="False" IsNewNode="True" />
             </LayoutGroup>
-            <LayoutGroup Id="Item2" ShowCaption="True" CaptionLocation="Top" Direction="Vertical" Index="3" Caption="Notes" RelativeSize="100" IsNewNode="True">
+            <LayoutGroup Id="Item4" ShowCaption="True" CaptionLocation="Top" Direction="Vertical" Index="3" Caption="Fluids" RelativeSize="100" IsNewNode="True">
+              <LayoutItem Id="AllFluids" ViewItem="AllFluids" Index="0" RelativeSize="100" IsNewNode="True" />
+            </LayoutGroup>
+            <LayoutGroup Id="Item2" ShowCaption="True" CaptionLocation="Top" Direction="Vertical" Index="4" Caption="Notes" RelativeSize="100" IsNewNode="True">
               <LayoutItem Id="Notes" ViewItem="Notes" Index="0" RelativeSize="100" ShowCaption="False" IsNewNode="True" />
             </LayoutGroup>
           </TabbedGroup>
@@ -134,66 +148,87 @@
         <ColumnInfo Id="Scale" Index="19" />
       </Columns>
     </ListView>
+    <ListView Id="ResourceFilter_Resources_ListView" AllowEdit="True">
+      <Columns>
+        <ColumnInfo Id="FluidResource" AllowEdit="False" />
+        <ColumnInfo Id="SolidResource" AllowEdit="False" />
+        <ColumnInfo Id="Selected" Index="0" />
+        <ColumnInfo Id="ResourceName" Index="1" />
+      </Columns>
+    </ListView>
     <DetailView Id="Star_DetailView">
       <Layout>
         <LayoutGroup Id="Main" RelativeSize="100">
-          <LayoutGroup Id="SimpleEditors" RelativeSize="55.489614243323444">
-            <LayoutGroup Id="Star" RelativeSize="100">
-              <LayoutGroup Id="Star_col1" RelativeSize="49.904580152671755">
-                <LayoutItem Id="Name" ViewItem="Name" Index="0" RelativeSize="10.240963855421686" IsNewNode="True" />
-                <LayoutItem Id="Age" RelativeSize="7.228915662650603" Index="1" />
-                <LayoutItem Id="StarType" ViewItem="StarType" Index="2" RelativeSize="7.228915662650603" IsNewNode="True" />
-                <LayoutItem Id="Spectr" ViewItem="Spectr" Index="3" RelativeSize="7.228915662650603" IsNewNode="True" />
-                <LayoutItem Id="Seed" ViewItem="Seed" Index="4" RelativeSize="7.228915662650603" IsNewNode="True" />
-                <LayoutItem Id="Mass" RelativeSize="7.228915662650603" Index="5" />
-                <LayoutItem Id="Temperature" RelativeSize="7.228915662650603" Index="6" />
-                <LayoutItem Id="Color" RelativeSize="7.228915662650603" Index="7" />
-                <LayoutItem Id="Lifetime" RelativeSize="6" Index="7" Removed="True" />
-                <LayoutItem Id="Luminosity" RelativeSize="7.228915662650603" Index="8" />
-                <LayoutItem Id="Radius" RelativeSize="7.228915662650603" Index="9" />
-                <LayoutItem Id="HabitableRadius" RelativeSize="7.228915662650603" Index="10" />
-                <LayoutItem Id="DysonRadius" RelativeSize="7.228915662650603" Index="11" />
-                <LayoutItem Id="ClassFactor" RelativeSize="10.240963855421686" Index="12" />
-                <LayoutItem Id="LightBalanceRadius" RelativeSize="6.382978723404255" Index="12" Removed="True" />
-                <LayoutItem Id="PhysicsRadius" RelativeSize="6.818181818181818" Index="12" Removed="True" />
-                <LayoutItem Id="ResourceCoef" RelativeSize="8" Index="15" Removed="True" />
+          <LayoutGroup Id="SimpleEditors" RelativeSize="50.89020771513353">
+            <LayoutGroup Id="Star" RelativeSize="100" ShowCaption="False">
+              <LayoutGroup Id="Star_col1" RelativeSize="49.90706319702602">
+                <LayoutItem Id="Name" ViewItem="Name" Index="0" RelativeSize="9.912536443148689" IsNewNode="True" />
+                <LayoutItem Id="Seed" ViewItem="Seed" Index="1" RelativeSize="6.997084548104956" IsNewNode="True" />
+                <LayoutItem Id="Radius" RelativeSize="6.997084548104956" Index="2" />
+                <LayoutItem Id="Age" RelativeSize="6.997084548104956" Index="3" />
+                <LayoutItem Id="Mass" RelativeSize="6.997084548104956" Index="4" />
+                <LayoutItem Id="Temperature" RelativeSize="6.997084548104956" Index="5" />
+                <LayoutItem Id="Lifetime" RelativeSize="6.997084548104956" Index="6" />
+                <LayoutItem Id="Color" RelativeSize="6.997084548104956" Index="7" />
+                <LayoutItem Id="Luminosity" RelativeSize="6.997084548104956" Index="8" />
+                <LayoutItem Id="HabitableRadius" RelativeSize="6.997084548104956" Index="9" />
+                <LayoutItem Id="DysonRadius" RelativeSize="6.997084548104956" Index="10" />
+                <LayoutItem Id="ClassFactor" RelativeSize="6.997084548104956" Index="11" />
+                <LayoutItem Id="LightBalanceRadius" RelativeSize="6.857142857142857" Index="11" Removed="True" />
+                <LayoutItem Id="PhysicsRadius" RelativeSize="6.030150753768845" Index="12" Removed="True" />
+                <LayoutItem Id="ResourceCoef" RelativeSize="13.119533527696793" Index="12" />
+                <LayoutItem Id="AcDiscRadius" RelativeSize="8.02139037433155" Index="14" Removed="True" />
               </LayoutGroup>
-              <LayoutGroup Id="Star_col2" RelativeSize="50.095419847328245">
-                <LayoutItem Id="PositionX" RelativeSize="10.240963855421686" Index="0" />
-                <LayoutItem Id="PositionY" RelativeSize="7.228915662650603" Index="1" />
-                <LayoutItem Id="PositionZ" RelativeSize="7.228915662650603" Index="2" />
-                <LayoutItem Id="BinaryCompanion" RelativeSize="7.228915662650603" Index="3" />
-                <LayoutItem Id="Decorative" RelativeSize="7.228915662650603" Index="4" />
-                <LayoutItem Id="Level" RelativeSize="7.228915662650603" Index="5" />
-                <LayoutItem Id="MaxOrbit" RelativeSize="7.228915662650603" Index="6" />
-                <LayoutItem Id="OrbitScalar" RelativeSize="7.228915662650603" Index="7" />
-                <LayoutItem Id="Lifetime" ViewItem="Lifetime" Index="8" RelativeSize="7.228915662650603" IsNewNode="True" />
-                <LayoutItem Id="AcDiscRadius" RelativeSize="7.228915662650603" Index="9" />
-                <LayoutItem Id="Seed" RelativeSize="6.382978723404255" Index="9" Removed="True" />
-                <LayoutItem Id="LightBalanceRadius" ViewItem="LightBalanceRadius" Index="10" RelativeSize="7.228915662650603" IsNewNode="True" />
-                <LayoutItem Id="Spectr" RelativeSize="34.04255319148936" Index="10" Removed="True" />
-                <LayoutItem Id="PhysicsRadius" ViewItem="PhysicsRadius" Index="11" RelativeSize="7.228915662650603" IsNewNode="True" />
-                <LayoutItem Id="StarType" RelativeSize="22.727272727272727" Index="11" Removed="True" />
-                <LayoutItem Id="ResourceCoef" ViewItem="ResourceCoef" Index="12" RelativeSize="10.240963855421686" IsNewNode="True" />
-                <LayoutItem Id="Name" RelativeSize="7.317073170731708" Removed="True" />
+              <LayoutGroup Id="Star_col2" RelativeSize="50.09293680297398">
+                <LayoutItem Id="PositionX" RelativeSize="9.912536443148689" />
+                <LayoutItem Id="PositionY" RelativeSize="6.997084548104956" />
+                <LayoutItem Id="PositionZ" RelativeSize="6.997084548104956" />
+                <LayoutItem Id="Decorative" RelativeSize="6.997084548104956" Index="3" />
+                <LayoutItem Id="Level" RelativeSize="6.997084548104956" Index="4" />
+                <LayoutItem Id="MaxOrbit" RelativeSize="6.997084548104956" Index="5" />
+                <LayoutItem Id="OrbitScalar" RelativeSize="6.997084548104956" Index="6" />
+                <LayoutItem Id="Spectr" RelativeSize="6.997084548104956" Index="7" />
+                <LayoutItem Id="Seed" RelativeSize="6.4171122994652405" Index="8" Removed="True" />
+                <LayoutItem Id="StarType" RelativeSize="6.997084548104956" Index="8" />
+                <LayoutGroup Id="Autob129d8a1-3d2c-4111-8ff9-3f87d9f9cebe" ShowCaption="False" Caption="Autob129d8a1-3d2c-4111-8ff9-3f87d9f9cebe(28)" Direction="Horizontal" Index="9" RelativeSize="11.078717201166182" IsNewNode="True">
+                  <LayoutItem Id="IsBinary" ViewItem="IsBinary" Index="0" RelativeSize="49.90723562152134" IsNewNode="True" />
+                  <LayoutItem Id="BinaryCompanion" ViewItem="BinaryCompanion" Index="1" RelativeSize="50.09276437847866" IsNewNode="True" />
+                </LayoutGroup>
+                <LayoutItem Id="AcDiscRadius" ViewItem="AcDiscRadius" Index="10" RelativeSize="6.997084548104956" IsNewNode="True" />
+                <LayoutItem Id="IsBinary" RelativeSize="6.857142857142857" Index="10" Removed="True" />
+                <LayoutItem Id="LightBalanceRadius" ViewItem="LightBalanceRadius" Index="11" RelativeSize="6.997084548104956" IsNewNode="True" />
+                <LayoutItem Id="PhysicsRadius" ViewItem="PhysicsRadius" Index="12" RelativeSize="9.037900874635568" IsNewNode="True" />
+                <LayoutItem Id="BinaryCompanion" RelativeSize="6.857142857142857" Removed="True" />
+                <LayoutItem Id="Name" RelativeSize="6.857142857142857" Removed="True" />
               </LayoutGroup>
             </LayoutGroup>
-            <LayoutGroup Id="XPObject" RelativeSize="9.06801007556675" Caption="Oid" Removed="True">
+            <LayoutGroup Id="XPObject" RelativeSize="8.551068883610451" Caption="Oid" Removed="True">
               <LayoutItem Id="Oid" RelativeSize="100" Removed="True" />
             </LayoutGroup>
           </LayoutGroup>
-          <TabbedGroup Id="Item1" CaptionLocation="Top" Index="1" RelativeSize="44.510385756676556" IsNewNode="True">
+          <TabbedGroup Id="Item1" CaptionLocation="Top" Index="1" RelativeSize="49.10979228486647" IsNewNode="True">
             <LayoutGroup Id="Planets_Group" ShowCaption="True" Caption="Planets" Index="0" RelativeSize="100" IsNewNode="True">
               <LayoutItem Id="Planets" ViewItem="Planets" Index="0" RelativeSize="100" IsNewNode="True" />
             </LayoutGroup>
-            <LayoutGroup Id="Item2" ShowCaption="True" CaptionLocation="Top" Direction="Vertical" Index="1" Caption="Notes" RelativeSize="100" IsNewNode="True">
+            <LayoutGroup Id="AllVeins" ShowCaption="True" Caption="All Veins" Index="1" RelativeSize="100" IsNewNode="True">
+              <LayoutItem Id="AllVeins" ViewItem="AllVeins" Index="0" RelativeSize="100" IsNewNode="True" />
+            </LayoutGroup>
+            <LayoutGroup Id="Item3" ShowCaption="True" CaptionLocation="Top" Direction="Vertical" Index="2" Caption="All Fluids" RelativeSize="100" IsNewNode="True">
+              <LayoutItem Id="AllFluids" ViewItem="AllFluids" Index="0" RelativeSize="100" IsNewNode="True" />
+            </LayoutGroup>
+            <LayoutGroup Id="Item2" ShowCaption="True" CaptionLocation="Top" Direction="Vertical" Index="3" Caption="Notes" RelativeSize="100" IsNewNode="True">
               <LayoutItem Id="Notes" ViewItem="Notes" Index="0" RelativeSize="100" ShowCaption="False" IsNewNode="True" />
             </LayoutGroup>
           </TabbedGroup>
-          <LayoutGroup Id="Planets_Group" Removed="True" />
-          <LayoutGroup Id="SizeableEditors" RelativeSize="10.806174957118353" Caption="Notes" Removed="True">
+          <LayoutGroup Id="SizeableEditors" RelativeSize="7.547169811320755" Caption="Notes" Removed="True">
             <LayoutItem Id="Notes" RelativeSize="100" Removed="True" />
           </LayoutGroup>
+          <TabbedGroup Id="Tabs" RelativeSize="20.240137221269297" Removed="True">
+            <LayoutGroup Id="AllVeins" Removed="True" />
+            <LayoutGroup Id="Planets" RelativeSize="0" Direction="Horizontal" Removed="True">
+              <LayoutItem Id="Planets" RelativeSize="100" Removed="True" />
+            </LayoutGroup>
+          </TabbedGroup>
         </LayoutGroup>
       </Layout>
     </DetailView>

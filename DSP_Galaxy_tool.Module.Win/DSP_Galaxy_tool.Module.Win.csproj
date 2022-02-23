@@ -9,6 +9,7 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="DevExpress.ExpressApp" Version="21.2.5" />
+    <PackageReference Include="DevExpress.ExpressApp.Chart.Win" Version="21.2.5" />
     <PackageReference Include="DevExpress.ExpressApp.CodeAnalysis" Version="21.2.5" />
     <PackageReference Include="DevExpress.ExpressApp.FileAttachment.Win" Version="21.2.5" />
     <PackageReference Include="DevExpress.ExpressApp.Validation.Win" Version="21.2.5" />

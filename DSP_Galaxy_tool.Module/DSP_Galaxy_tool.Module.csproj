@@ -14,6 +14,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="DevExpress.ExpressApp" Version="21.2.5" />
+    <PackageReference Include="DevExpress.ExpressApp.Chart" Version="21.2.5" />
     <PackageReference Include="DevExpress.ExpressApp.CloneObject.Xpo" Version="21.2.5" />
     <PackageReference Include="DevExpress.ExpressApp.CodeAnalysis" Version="21.2.5" />
     <PackageReference Include="DevExpress.ExpressApp.ConditionalAppearance" Version="21.2.5" />

@@ -9,7 +9,7 @@ namespace DSP_Galaxy_tool.Module.BusinessObjects
 {
     [DevExpress.ExpressApp.Model.ModelDefault("IsCloneable", "True")]
     [DevExpress.Persistent.Base.NavigationItem("Galaxy")]
-    public class Planet : XPObject
+    public class Planet : XPObject, Classes.IResourceOwner
     {
         public Planet(Session session) : base(session) { }
 
@@ -66,7 +66,6 @@ namespace DSP_Galaxy_tool.Module.BusinessObjects
         [Association("Planet-Moons"), Aggregated]
         public XPCollection<Planet> Moons
         { get => GetCollection<Planet>(); }
-
 
         public int Seed
         {
@@ -186,9 +185,26 @@ namespace DSP_Galaxy_tool.Module.BusinessObjects
         {
             get
             {
-                if(allVeins == null)
-                { allVeins = new XPCollection<VeinTypeVein>(DevExpress.Data.Filtering.CriteriaOperator.Parse("VeinType.VeinSettings.<PlanetVeinSettings>Planet = ?", this)); }
+                if(allVeins == null && !IsLoading && !IsDeleted)
+                { allVeins = new XPCollection<VeinTypeVein>(Session, DevExpress.Data.Filtering.CriteriaOperator.Parse("VeinType.VeinSettings.<PlanetVeinSettings>Planet = ?", this)); }
                 return allVeins;
+            }
+        }
+
+        private System.ComponentModel.BindingList<FluidResource> allFluids;
+        public System.ComponentModel.BindingList<FluidResource> AllFluids
+        {
+            get
+            {
+                if(allFluids == null && !IsLoading && !IsDeleted)
+                {
+                    allFluids = new System.ComponentModel.BindingList<FluidResource>();
+                    foreach(var gasItem in theme.GasItems)
+                    { allFluids.Add(gasItem.Gas); }
+                    if(theme.WaterItemId != null)
+                    { allFluids.Add(theme.WaterItemId); }
+                }
+                return allFluids;
             }
         }
     }

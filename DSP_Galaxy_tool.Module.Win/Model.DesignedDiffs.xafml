@@ -1,2 +1,68 @@
-﻿<?xml version="1.0" ?>
-<Application />
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <SchemaModules>
+    <SchemaModule Name="CloneObjectModule" Version="21.2.5.0" IsNewNode="True" />
+    <SchemaModule Name="SystemModule" Version="21.2.5.0" IsNewNode="True" />
+    <SchemaModule Name="SystemWindowsFormsModule" Version="21.2.5.0" IsNewNode="True" />
+  </SchemaModules>
+  <Views>
+    <DetailView Id="Cluster_DetailView">
+      <Items>
+        <PropertyEditor Id="StarChart" PropertyName="Stars" View="StarChart" Caption="StarChart" IsNewNode="True" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors" RelativeSize="16.765578635014837">
+            <LayoutGroup Id="Cluster">
+              <LayoutGroup Id="Cluster_col1" RelativeSize="49.90601503759399">
+                <LayoutItem Id="Name" RelativeSize="30.088495575221238" />
+                <LayoutItem Id="Seed" RelativeSize="21.238938053097346" />
+                <LayoutItem Id="BirthPlanet" RelativeSize="21.238938053097346" />
+                <LayoutItem Id="Stype" RelativeSize="27.43362831858407" />
+              </LayoutGroup>
+              <LayoutGroup Id="Cluster_col2" RelativeSize="50.09398496240601">
+                <LayoutItem Id="BirthIronCount" RelativeSize="30.088495575221238" />
+                <LayoutItem Id="BirthIronRichness" RelativeSize="21.238938053097346" />
+                <LayoutItem Id="BirthCopperCount" RelativeSize="21.238938053097346" />
+                <LayoutItem Id="BirthCopperRichness" RelativeSize="27.43362831858407" />
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+          <TabbedGroup Id="Tabs" RelativeSize="78.18991097922849">
+            <LayoutGroup Id="ThemeLibrary" TextAlignMode="AlignWithChildren">
+              <LayoutItem Id="ThemeLibrary" TextAlignMode="AutoSize" />
+            </LayoutGroup>
+            <LayoutGroup Id="Stars" TextAlignMode="AlignWithChildren">
+              <LayoutItem Id="Stars" TextAlignMode="AutoSize" />
+            </LayoutGroup>
+            <LayoutGroup Id="Item2" ShowCaption="True" CaptionLocation="Top" Direction="Vertical" Index="2" Caption="StarChart" TextAlignMode="AlignWithChildren" RelativeSize="100" IsNewNode="True">
+              <LayoutItem Id="@4a47d39d-9839-47ca-8f88-fe36fd22ee90" ViewItem="StarChart" Index="0" RelativeSize="100" IsNewNode="True" />
+            </LayoutGroup>
+            <LayoutGroup Id="Item1" TextAlignMode="AlignWithChildren" Index="3">
+              <LayoutItem Id="Notes" TextAlignMode="AutoSize" />
+            </LayoutGroup>
+          </TabbedGroup>
+          <LayoutItem Id="GalaxyParams" RelativeSize="5.044510385756676" />
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="StarChart" ClassName="DSP_Galaxy_tool.Module.BusinessObjects.Star" EditorTypeName="DevExpress.ExpressApp.Chart.Win.ChartListEditor" MasterDetailView="StarLight" MasterDetailMode="ListViewAndDetailView" IsNewNode="True">
+      <ChartSettings Settings="﻿&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;&#xD;&#xA;&lt;ChartXmlSerializer version=&quot;21.2.5.0&quot;&gt;&#xD;&#xA;  &lt;Chart AppearanceNameSerializable=&quot;Default&quot; SelectionMode=&quot;None&quot; SeriesSelectionMode=&quot;Series&quot; ToolTipEnabled=&quot;True&quot;&gt;&#xD;&#xA;    &lt;DataContainer BoundSeriesSorting=&quot;None&quot; ValidateDataMembers=&quot;true&quot;&gt;&#xD;&#xA;      &lt;SeriesSerializable&gt;&#xD;&#xA;        &lt;Item1 Name=&quot;Series 1&quot; ArgumentDataMember=&quot;PositionX&quot; ColorDataMember=&quot;Color&quot; ToolTipHintDataMember=&quot;Name&quot; ValueDataMembersSerializable=&quot;PositionY;Radius&quot; CrosshairLabelPattern=&quot;{HINT}&quot;&gt;&#xD;&#xA;          &lt;View AutoSize=&quot;false&quot; MinSize=&quot;0.2&quot; SizeUnit=&quot;AxisXMeasureUnit&quot; TypeNameSerializable=&quot;BubbleSeriesView&quot;&gt;&#xD;&#xA;            &lt;FirstPoint LabelDisplayMode=&quot;Default&quot; TypeNameSerializable=&quot;SidePoint&quot;&gt;&#xD;&#xA;              &lt;Label Angle=&quot;180&quot; TypeNameSerializable=&quot;BubbleSeriesLabel&quot; TextOrientation=&quot;Horizontal&quot; /&gt;&#xD;&#xA;            &lt;/FirstPoint&gt;&#xD;&#xA;            &lt;LastPoint LabelDisplayMode=&quot;Default&quot; TypeNameSerializable=&quot;SidePoint&quot;&gt;&#xD;&#xA;              &lt;Label Angle=&quot;0&quot; TypeNameSerializable=&quot;BubbleSeriesLabel&quot; TextOrientation=&quot;Horizontal&quot; /&gt;&#xD;&#xA;            &lt;/LastPoint&gt;&#xD;&#xA;          &lt;/View&gt;&#xD;&#xA;        &lt;/Item1&gt;&#xD;&#xA;      &lt;/SeriesSerializable&gt;&#xD;&#xA;      &lt;SeriesTemplate /&gt;&#xD;&#xA;    &lt;/DataContainer&gt;&#xD;&#xA;    &lt;Diagram RuntimePaneCollapse=&quot;true&quot; RuntimePaneResize=&quot;false&quot; PaneLayoutDirection=&quot;Vertical&quot; TypeNameSerializable=&quot;XYDiagram&quot;&gt;&#xD;&#xA;      &lt;AxisX StickToEnd=&quot;false&quot; VisibleInPanesSerializable=&quot;-1&quot; ShowBehind=&quot;false&quot;&gt;&#xD;&#xA;        &lt;WholeRange StartSideMargin=&quot;0.9&quot; EndSideMargin=&quot;0.9&quot; SideMarginSizeUnit=&quot;AxisUnit&quot; /&gt;&#xD;&#xA;      &lt;/AxisX&gt;&#xD;&#xA;      &lt;AxisY VisibleInPanesSerializable=&quot;-1&quot; ShowBehind=&quot;false&quot;&gt;&#xD;&#xA;        &lt;WholeRange StartSideMargin=&quot;0.89&quot; EndSideMargin=&quot;0.89&quot; SideMarginSizeUnit=&quot;AxisUnit&quot; /&gt;&#xD;&#xA;      &lt;/AxisY&gt;&#xD;&#xA;      &lt;SelectionOptions /&gt;&#xD;&#xA;    &lt;/Diagram&gt;&#xD;&#xA;    &lt;Legend CrosshairContentOffset=&quot;4&quot; MaxCrosshairContentWidth=&quot;50&quot; MaxCrosshairContentHeight=&quot;0&quot; /&gt;&#xD;&#xA;  &lt;/Chart&gt;&#xD;&#xA;&lt;/ChartXmlSerializer&gt;" IsNewNode="True" />
+      <SplitLayout SplitterPosition="500" IsNewNode="True" />
+    </ListView>
+    <DetailView Id="StarLight" ClassName="DSP_Galaxy_tool.Module.BusinessObjects.Star" IsNewNode="True">
+      <Items IsNewNode="True">
+        <PropertyEditor Id="AllVeins" PropertyName="AllVeins" View="Star_AllVeins_ListView" IsNewNode="True" />
+        <PropertyEditor Id="Name" PropertyName="Name" IsNewNode="True" />
+        <PropertyEditor Id="Radius" PropertyName="Radius" IsNewNode="True" />
+        <PropertyEditor Id="Spectr" PropertyName="Spectr" IsNewNode="True" />
+      </Items>
+      <Layout IsNewNode="True">
+        <LayoutItem Id="Name" ViewItem="Name" Index="0" RelativeSize="5.044510385756676" IsNewNode="True" />
+        <LayoutItem Id="Spectr" ViewItem="Spectr" Index="1" RelativeSize="3.5608308605341246" IsNewNode="True" />
+        <LayoutItem Id="Radius" ViewItem="Radius" Index="2" RelativeSize="3.5608308605341246" IsNewNode="True" />
+        <LayoutItem Id="AllVeins" ViewItem="AllVeins" Index="3" RelativeSize="87.83382789317507" ShowCaption="True" CaptionLocation="Top" IsNewNode="True" />
+      </Layout>
+    </DetailView>
+  </Views>
+</Application>

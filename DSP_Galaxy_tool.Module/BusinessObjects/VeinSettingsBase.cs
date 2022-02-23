@@ -116,6 +116,14 @@ namespace DSP_Galaxy_tool.Module.BusinessObjects
             set => SetPropertyValue(nameof(Richness), ref richness, value);
         }
 
+        [PersistentAlias("ClusterCount * ClusterSize")]
+        public int TotalVeins
+        { get => (int)EvaluateAlias(); }
+
+        [PersistentAlias("ClusterCount * ClusterSize * Richness")]
+        public double ScaledTotalVeins
+        { get => Convert.ToDouble(EvaluateAlias()); }
+
         [PersistentAlias("Concat(ClusterCount, 'x', ClusterSize, 'x', Richness)")]
         [DevExpress.Persistent.Base.VisibleInListView(false)]
         public string Data
@@ -124,6 +132,7 @@ namespace DSP_Galaxy_tool.Module.BusinessObjects
         }
     }
 
+    [DevExpress.Persistent.Base.NavigationItem("Settings")]
     public class OreType : XPObject
     {
         public OreType(Session session) : base(session) { }

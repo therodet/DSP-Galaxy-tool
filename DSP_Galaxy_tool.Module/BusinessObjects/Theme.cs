@@ -12,6 +12,7 @@ namespace DSP_Galaxy_tool.Module.BusinessObjects
 {
     [DevExpress.ExpressApp.Model.ModelDefault("IsCloneable", "True")]
     [RuleCombinationOfPropertiesIsUnique("Cluster;Name")]
+    [DevExpress.Persistent.Base.NavigationItem("Settings")]
     public class Theme : XPObject
     {
         public Theme(Session session) : base(session) { }
@@ -22,10 +23,11 @@ namespace DSP_Galaxy_tool.Module.BusinessObjects
 
             TerrainSettings = new TerrainSettings(Session);
             VeinSettings = new VeinSettings(Session);
-            VegeSettings = new VegeSettings(Session);
+//            VegeSettings = new VegeSettings(Session);
             AmbientSettings = new AmbientSettings(Session);
         }
 
+        string vegeSettings;
         AmbientSettings ambientSettings;
         Material minimapMaterial;
         Material thumbMaterial;
@@ -36,7 +38,7 @@ namespace DSP_Galaxy_tool.Module.BusinessObjects
         double sXFVolume;
         string sFXPath;
         string musics;
-        int waterItemId;
+        FluidResource waterItemId;
         double waterHeight;
         double ionHeight;
         double wind;
@@ -157,7 +159,7 @@ namespace DSP_Galaxy_tool.Module.BusinessObjects
             get => veinSettings;
             private set => SetPropertyValue(nameof(VeinSettings), ref veinSettings, value);
         }
-
+        /*
         [Aggregated]
         [Persistent]
         [DevExpress.Persistent.Base.ExpandObjectMembers(DevExpress.Persistent.Base.ExpandObjectMembers.Never)]
@@ -165,6 +167,15 @@ namespace DSP_Galaxy_tool.Module.BusinessObjects
         {
             get => vegeSettings;
             private set => SetPropertyValue(nameof(VegeSettings), ref vegeSettings, value);
+        }
+        */
+
+        
+        [Size(SizeAttribute.Unlimited)]
+        public string VegeSettings
+        {
+            get => vegeSettings;
+            set => SetPropertyValue(nameof(VegeSettings), ref vegeSettings, value);
         }
 
         [Association("Theme-GasItems"), Aggregated]
@@ -189,7 +200,7 @@ namespace DSP_Galaxy_tool.Module.BusinessObjects
             set => SetPropertyValue(nameof(WaterHeight), ref waterHeight, value);
         }
 
-        public int WaterItemId
+        public FluidResource WaterItemId
         {
             get => waterItemId;
             set => SetPropertyValue(nameof(WaterItemId), ref waterItemId, value);
@@ -262,6 +273,7 @@ namespace DSP_Galaxy_tool.Module.BusinessObjects
         }
     }
 
+    [DevExpress.Persistent.Base.NavigationItem("Settings")]
     public class StarType : XPObject
     {
         public StarType(Session session) : base(session) { }
@@ -411,9 +423,10 @@ namespace DSP_Galaxy_tool.Module.BusinessObjects
         }
     }
 
-    public class GasResource : XPObject
+    [DevExpress.Persistent.Base.NavigationItem("Settings")]
+    public class FluidResource : XPObject
     {
-        public GasResource(Session session) : base(session) { }
+        public FluidResource(Session session) : base(session) { }
 
         string name;
         int resourceID;
@@ -437,7 +450,7 @@ namespace DSP_Galaxy_tool.Module.BusinessObjects
         public ThemeGas(Session session) : base(session) { }
 
         double rate;
-        GasResource gas;
+        FluidResource gas;
         Theme theme;
         [Association("Theme-GasItems")]
         [Persistent]
@@ -447,7 +460,7 @@ namespace DSP_Galaxy_tool.Module.BusinessObjects
             private set => SetPropertyValue(nameof(Theme), ref theme, value);
         }
 
-        public GasResource Gas
+        public FluidResource Gas
         {
             get => gas;
             set => SetPropertyValue(nameof(Gas), ref gas, value);

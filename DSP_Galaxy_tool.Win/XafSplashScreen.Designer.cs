@@ -48,6 +48,9 @@
             this.progressBarControl.EditValue = 0;
             this.progressBarControl.Location = new System.Drawing.Point(74, 271);
             this.progressBarControl.Name = "progressBarControl";
+            // 
+            // 
+            // 
             this.progressBarControl.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(194)))), ((int)(((byte)(194)))));
             this.progressBarControl.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
             this.progressBarControl.Properties.EndColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(114)))), ((int)(((byte)(0)))));
@@ -81,6 +84,9 @@
             this.peImage.EditValue = ((object)(resources.GetObject("peImage.EditValue")));
             this.peImage.Location = new System.Drawing.Point(12, 12);
             this.peImage.Name = "peImage";
+            // 
+            // 
+            // 
             this.peImage.Properties.AllowFocused = false;
             this.peImage.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.peImage.Properties.Appearance.Options.UseBackColor = true;
@@ -92,9 +98,11 @@
             // 
             // peLogo
             // 
-            this.peLogo.EditValue = ((object)(resources.GetObject("peLogo.EditValue")));
             this.peLogo.Location = new System.Drawing.Point(400, 328);
             this.peLogo.Name = "peLogo";
+            // 
+            // 
+            // 
             this.peLogo.Properties.AllowFocused = false;
             this.peLogo.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.peLogo.Properties.Appearance.Options.UseBackColor = true;
@@ -110,7 +118,7 @@
             this.pcApplicationName.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.pcApplicationName.Controls.Add(this.labelSubtitle);
             this.pcApplicationName.Controls.Add(this.labelApplicationName);
-			this.pcApplicationName.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pcApplicationName.Dock = System.Windows.Forms.DockStyle.Top;
             this.pcApplicationName.Location = new System.Drawing.Point(1, 1);
             this.pcApplicationName.LookAndFeel.UseDefaultLookAndFeel = false;
             this.pcApplicationName.Name = "pcApplicationName";
@@ -119,27 +127,27 @@
             // 
             // labelSubtitle
             // 
-            this.labelSubtitle.Appearance.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSubtitle.Appearance.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelSubtitle.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(216)))), ((int)(((byte)(188)))));
             this.labelSubtitle.Appearance.Options.UseFont = true;
             this.labelSubtitle.Appearance.Options.UseForeColor = true;
             this.labelSubtitle.Location = new System.Drawing.Point(222, 131);
             this.labelSubtitle.Name = "labelSubtitle";
-            this.labelSubtitle.Size = new System.Drawing.Size(64, 25);
+            this.labelSubtitle.Size = new System.Drawing.Size(163, 25);
             this.labelSubtitle.TabIndex = 1;
-            this.labelSubtitle.Text = "Subtitle";
+            this.labelSubtitle.Text = "GS2 JSON manager";
             // 
             // labelApplicationName
             // 
-            this.labelApplicationName.Appearance.Font = new System.Drawing.Font("Segoe UI", 26.25F);
+            this.labelApplicationName.Appearance.Font = new System.Drawing.Font("Segoe UI", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelApplicationName.Appearance.ForeColor = System.Drawing.SystemColors.Window;
             this.labelApplicationName.Appearance.Options.UseFont = true;
             this.labelApplicationName.Appearance.Options.UseForeColor = true;
             this.labelApplicationName.Location = new System.Drawing.Point(123, 84);
             this.labelApplicationName.Name = "labelApplicationName";
-            this.labelApplicationName.Size = new System.Drawing.Size(278, 47);
+            this.labelApplicationName.Size = new System.Drawing.Size(253, 47);
             this.labelApplicationName.TabIndex = 0;
-            this.labelApplicationName.Text = "Application Name";
+            this.labelApplicationName.Text = "DSP Galaxy Tool";
             // 
             // XafSplashScreen
             // 

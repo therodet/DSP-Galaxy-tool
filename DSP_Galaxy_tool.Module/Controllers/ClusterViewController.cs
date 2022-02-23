@@ -32,6 +32,7 @@ namespace DSP_Galaxy_tool.Module.Controllers
             importClusterFileAction = new PopupWindowShowAction(components);
             importClusterFileAction.Id = nameof(importClusterFileAction);
             importClusterFileAction.Caption = "Import";
+            importClusterFileAction.ImageName = "Import";
             importClusterFileAction.Category = "Edit";
             importClusterFileAction.SelectionDependencyType = SelectionDependencyType.Independent;
             importClusterFileAction.CustomizePopupWindowParams += ImportClusterFileAction_CustomizePopupWindowParams;
@@ -121,16 +122,28 @@ namespace DSP_Galaxy_tool.Module.Controllers
                     JArray jGasSpeeds = (JArray)jTheme["GasSpeeds"];
                     for (int index = 0; index < jGasItems.Count; index++)
                     {
-                        GasResource gasResource = objectSpace.FindObject<GasResource>(new BinaryOperator(nameof(GasResource.ResourceID), (int)jGasItems[index]));
+                        FluidResource gasResource = objectSpace.FindObject<FluidResource>(new BinaryOperator(nameof(FluidResource.ResourceID), (int)jGasItems[index]));
                         if (gasResource == null)
                         {
-                            gasResource = objectSpace.CreateObject<GasResource>();
+                            gasResource = objectSpace.CreateObject<FluidResource>();
                             gasResource.ResourceID = (int)jGasItems[index];
                         }
                         ThemeGas gas = objectSpace.CreateObject<ThemeGas>();
                         gas.Gas = gasResource;
                         gas.Rate = (double)jGasSpeeds[index];
                         theme.GasItems.Add(gas);
+                    }
+
+                    int waterId = (int)jTheme["WaterItemId"];
+                    if (waterId != 0)
+                    {
+                        FluidResource fluidResource = objectSpace.FindObject<FluidResource>(new BinaryOperator(nameof(FluidResource.ResourceID), waterId));
+                        if (fluidResource == null)
+                        {
+                            fluidResource = objectSpace.CreateObject<FluidResource>();
+                            fluidResource.ResourceID = waterId;
+                        }
+                        theme.WaterItemId = fluidResource;
                     }
 
                     JArray jMusics = (JArray)jTheme["Musics"];
@@ -251,15 +264,19 @@ namespace DSP_Galaxy_tool.Module.Controllers
         private Material GetMaterial(IObjectSpace objectSpace, JObject jMaterial)
         {
             Material material = objectSpace.CreateObject<Material>();
-            foreach(JProperty jColor in jMaterial["Colors"])
+            foreach (JProperty jColorProp in jMaterial["Colors"])
             {
                 MaterialColor color = objectSpace.CreateObject<MaterialColor>();
-                color.Name = jColor.Name;
-                color.Color = GetColor(jColor);
+                color.Name = jColorProp.Name;
+                JObject jColor = (JObject)jColorProp.Children().First();
+                color.A = (double)jColor["a"];
+                color.R = (double)jColor["r"];
+                color.G = (double)jColor["g"];
+                color.B = (double)jColor["b"];
                 material.Colors.Add(color);
             }
             material.CopyFrom = (string)jMaterial["CopyFrom"];
-            foreach(JProperty property in jMaterial["Params"].Children<JProperty>())
+            foreach (JProperty property in jMaterial["Params"].Children<JProperty>())
             {
                 MaterialParams param = objectSpace.CreateObject<MaterialParams>();
                 param.Name = property.Name;
@@ -303,7 +320,7 @@ namespace DSP_Galaxy_tool.Module.Controllers
                         { member.SetValue(target, (int)property.Value); }
                     }
                 }
-                catch (Exception ex)
+                catch (Exception)
                 { System.Diagnostics.Debug.WriteLine("Unable to convert: " + property.Name); }
             }
         }

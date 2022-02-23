@@ -27,6 +27,7 @@
 			// DSP_Galaxy_toolModule
 			// 
 			this.RequiredModuleTypes.Add(typeof(DevExpress.ExpressApp.SystemModule.SystemModule));
+			this.RequiredModuleTypes.Add(typeof(DevExpress.ExpressApp.Chart.ChartModule));
 			this.RequiredModuleTypes.Add(typeof(DevExpress.ExpressApp.CloneObject.CloneObjectModule));
 			this.RequiredModuleTypes.Add(typeof(DevExpress.ExpressApp.ConditionalAppearance.ConditionalAppearanceModule));
 			this.RequiredModuleTypes.Add(typeof(DevExpress.ExpressApp.Validation.ValidationModule));

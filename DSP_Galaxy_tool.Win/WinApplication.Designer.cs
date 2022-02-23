@@ -27,6 +27,8 @@
             this.module2 = new DevExpress.ExpressApp.Win.SystemModule.SystemWindowsFormsModule();
             this.module3 = new DSP_Galaxy_tool.Module.DSP_Galaxy_toolModule();
             this.module4 = new DSP_Galaxy_tool.Module.Win.DSP_Galaxy_toolWindowsFormsModule();
+            this.chartModule = new DevExpress.ExpressApp.Chart.ChartModule();
+            this.chartWindowsFormsModule = new DevExpress.ExpressApp.Chart.Win.ChartWindowsFormsModule();
             this.cloneObjectModule = new DevExpress.ExpressApp.CloneObject.CloneObjectModule();
             this.conditionalAppearanceModule = new DevExpress.ExpressApp.ConditionalAppearance.ConditionalAppearanceModule();
             this.fileAttachmentsWindowsFormsModule = new DevExpress.ExpressApp.FileAttachments.Win.FileAttachmentsWindowsFormsModule();
@@ -46,6 +48,8 @@
             this.Modules.Add(this.module2);
             this.Modules.Add(this.module3);
             this.Modules.Add(this.module4);
+            this.Modules.Add(this.chartModule);
+            this.Modules.Add(this.chartWindowsFormsModule);
             this.Modules.Add(this.cloneObjectModule);
             this.Modules.Add(this.conditionalAppearanceModule);
             this.Modules.Add(this.fileAttachmentsWindowsFormsModule);
@@ -65,6 +69,8 @@
         private DevExpress.ExpressApp.Win.SystemModule.SystemWindowsFormsModule module2;
         private DSP_Galaxy_tool.Module.DSP_Galaxy_toolModule module3;
         private DSP_Galaxy_tool.Module.Win.DSP_Galaxy_toolWindowsFormsModule module4;
+        private DevExpress.ExpressApp.Chart.ChartModule chartModule;
+        private DevExpress.ExpressApp.Chart.Win.ChartWindowsFormsModule chartWindowsFormsModule;
         private DevExpress.ExpressApp.CloneObject.CloneObjectModule cloneObjectModule;
         private DevExpress.ExpressApp.ConditionalAppearance.ConditionalAppearanceModule conditionalAppearanceModule;
         private DevExpress.ExpressApp.FileAttachments.Win.FileAttachmentsWindowsFormsModule fileAttachmentsWindowsFormsModule;
